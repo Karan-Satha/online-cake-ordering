@@ -52,6 +52,26 @@ if (config.nodeEnv === "production") {
 
 app.use(
   helmet({
+    contentSecurityPolicy: {
+      directives: {
+        "img-src": [
+          "'self'",
+          "data:",
+          // Neon Object Storage serves public product images from a
+          // branch-prefixed hostname derived from the S3 endpoint.
+          ...(process.env.AWS_ENDPOINT_URL_S3
+            ? (() => {
+                const storageHost = new URL(process.env.AWS_ENDPOINT_URL_S3).hostname;
+                return [
+                  storageHost.startsWith("storage.")
+                    ? `https://*.${storageHost}`
+                    : `https://${storageHost}`,
+                ];
+              })()
+            : []),
+        ],
+      },
+    },
     // Product/inspiration images under /uploads are meant to be embeddable
     // from the separate frontend origin used in local dev (Live Server on
     // :5500) and from any frontend deployed to a different origin in
