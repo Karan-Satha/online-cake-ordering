@@ -206,13 +206,12 @@ app.get("/shop/:categorySlug", (req, res) => {
 // Static assets (css, js, images, etc.)
 app.use(
   express.static(frontendPath, {
-    // CSS/JS/fonts/images are safe to cache aggressively — the browser
-    // still revalidates for free via ETag if a file changes. HTML pages
-    // are the exception: cache those and a deploy could leave visitors
-    // stuck on a stale page for up to a day.
+    // Revalidate HTML and executable/style assets after deploys so a
+    // browser does not keep running stale modules for the one-day asset TTL.
+    // Fingerprinted uploads and other static media can use the longer TTL.
     maxAge: "1d",
     setHeaders: (res, filePath) => {
-      if (filePath.endsWith(".html")) {
+      if (/\.(?:html|js|css)$/i.test(filePath)) {
         res.setHeader("Cache-Control", "no-cache");
       }
     },
