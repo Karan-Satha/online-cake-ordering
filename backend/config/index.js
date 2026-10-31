@@ -1,0 +1,18 @@
+export const config = {
+  port: process.env.PORT || 3000,
+  jwtSecret: process.env.JWT_SECRET,
+  nodeEnv: process.env.NODE_ENV || "development",
+  frontendUrl: process.env.FRONTEND_URL || "http://localhost:3000",
+  stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+  stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+  databaseUrl: process.env.DATABASE_URL,
+  databaseSsl: process.env.DATABASE_SSL !== "false",
+  databasePoolMax: Number(process.env.DATABASE_POOL_MAX || 5),
+  databaseConnectionTimeoutMs: Number(process.env.DATABASE_CONNECTION_TIMEOUT_MS || 5000),
+  productImagesBucket: process.env.PRODUCT_IMAGES_BUCKET || "home-cake-products",
+  customCakeImagesBucket: process.env.CUSTOM_CAKE_IMAGES_BUCKET || "home-cake-custom-cakes",
+  resendApiKey: process.env.RESEND_API_KEY,
+  emailFromAddress: process.env.EMAIL_FROM_ADDRESS || "orders@homecake.co.uk",
+  emailFromName: process.env.EMAIL_FROM_NAME || "Home Cake",
+  abandonedCartDelayHours: Number(process.env.ABANDONED_CART_DELAY_HOURS || 24),
+};

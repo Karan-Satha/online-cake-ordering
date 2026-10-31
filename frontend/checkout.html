@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Home Cake</title>
+    <meta name="description" content="Securely complete your Home Cake order." />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="checkout-page">
+    <header class="checkout-header">
+      <a href="/" class="brand-logo" aria-label="Home Cake home">
+        <img src="/assets/images/logo.webp" alt="Home Cake" />
+      </a>
+      <div class="checkout-header__actions">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          ><use href="/assets/svg/icons.svg#shield-check"></use></svg>
+
+          <span class="checkout-security">Secure checkout</span>
+        </div>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          ><use href="/assets/svg/icons.svg#shopping-bag-arrow"></use></svg>
+
+          <a class="checkout-header__link" href="/shop/all"> Continue shopping</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="checkout-main container">
+      <div class="checkout-intro">
+        <p>Home Cake · London</p>
+        <h1>A little closer to something delicious.</h1>
+        <span>Confirm your delivery details and we'll take care of the rest.</span>
+        <ol class="checkout-steps" aria-label="Checkout progress">
+          <li class="is-active"><span>1</span>Delivery</li>
+          <li><span>2</span>Payment</li>
+          <li><span>3</span>Confirmation</li>
+        </ol>
+      </div>
+
+      <div id="checkout-layout" class="checkout-layout">
+        <section class="checkout-details" aria-labelledby="delivery-title">
+          <div class="checkout-section-heading">
+            <span>01</span>
+            <div>
+              <p>Your details</p>
+              <h2 id="delivery-title">Where should we deliver?</h2>
+            </div>
+          </div>
+          <form id="checkout-form" class="checkout-form" novalidate>
+            <div class="checkout-form__grid">
+              <label>Full name<input id="customer-name" type="text" autocomplete="name" required /></label>
+              <label>Email<input id="customer-email" type="email" autocomplete="email" required /></label>
+              <label>Phone<input id="customer-phone" type="tel" autocomplete="tel" required /></label>
+              <label>Postcode<input id="delivery-postcode" type="text" autocomplete="postal-code" required /></label>
+            </div>
+            <label
+              >Delivery address<input id="delivery-address" type="text" autocomplete="street-address" required
+            /></label>
+            <label>City<input id="delivery-city" type="text" autocomplete="address-level2" required /></label>
+            <label
+              >Delivery notes <span>(optional)</span
+              ><textarea
+                id="delivery-notes"
+                rows="4"
+                placeholder="Cake message, delivery instructions, or a safe place"
+              ></textarea>
+            </label>
+            <p id="checkout-error" hidden></p>
+            <label class="checkout-form__checkbox">
+              <input id="marketing-opt-in" type="checkbox" />
+              <span>Email me if I don't finish checking out, plus occasional offers.</span>
+            </label>
+            <button id="pay-button" class="pay-button" type="submit">Continue to secure payment</button>
+            <p class="payment-note">
+              <span aria-hidden="true">✦</span> You’ll review and pay securely on Stripe’s checkout page.
+            </p>
+          </form>
+        </section>
+
+        <aside class="order-summary" aria-labelledby="summary-title">
+          <div class="order-summary__heading">
+            <div>
+              <p>Order summary</p>
+              <h2 id="summary-title">Your basket</h2>
+            </div>
+            <a href="/shop/all">Edit</a>
+          </div>
+          <ul id="checkout-items" class="checkout-items"></ul>
+          <div class="voucher-form">
+            <input
+              id="voucher-code-input"
+              type="text"
+              placeholder="Have a discount code?"
+              autocomplete="off"
+              data-error-anchor=".voucher-form"
+            />
+            <button type="button" id="voucher-apply-button">Apply</button>
+          </div>
+
+          <div class="order-summary__rows">
+            <p><span>Subtotal</span><strong id="checkout-subtotal">£0.00</strong></p>
+            <p id="checkout-discount-row" hidden>
+              <span id="checkout-discount-label">Discount</span><strong id="checkout-discount">−£0.00</strong>
+            </p>
+            <p><span>Delivery</span><strong id="checkout-delivery">£0.00</strong></p>
+            <p id="free-delivery-message" class="free-delivery-message"></p>
+            <p class="order-summary__total"><span>Total</span><strong id="checkout-total">£0.00</strong></p>
+          </div>
+          <div class="order-summary__assurance">
+            <span aria-hidden="true">♡</span>
+            <p>Lovingly baked to order with the finest ingredients.</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <div class="footer-bottom__checkout">
+      <p>© 2026 Home Cake. Freshly baked with love.</p>
+    </div>
+
+    <script type="module" src="/js/checkout.js"></script>
+    <script type="module" src="/js/overlay.js"></script>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+/* =========================================
+   MENU BUTTON
+========================================= */
+
+.mobile-menu-toggle {
+  display: none;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  z-index: 1002;
+  position: absolute;
+  right: 15px;
+  top: 22px;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 34px;
+  height: 2px;
+  margin: 8px auto;
+  background: var(--white);
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgb(0 0 0 / 0.35);
+
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease;
+
+  z-index: 998;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   DRAWER
+========================================= */
+
+.mobile-nav {
+  position: fixed;
+
+  top: 0;
+  right: -320px;
+
+  width: 320px;
+  max-width: 90vw;
+
+  height: 100vh;
+
+  background: white;
+
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: -20px 0 60px rgb(0 0 0 / 12%);
+
+  transition: right 0.35s ease;
+
+  z-index: 999;
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.mobile-nav__close {
+  align-self: flex-end;
+
+  width: 42px;
+  height: 42px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #fff5ee;
+
+  color: #353a56;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: 0.25s ease;
+}
+
+.mobile-nav__close:hover {
+  transform: rotate(90deg);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.mobile-nav__header {
+  padding-bottom: 2rem;
+
+  border-bottom: 1px solid #f2f2f2;
+
+  margin-bottom: 2rem;
+}
+
+.mobile-nav__header h3 {
+  margin: 0;
+
+  font-family: "Great Vibes", cursive;
+
+  font-size: 2.5rem;
+
+  color: #353a56;
+}
+
+.mobile-nav__header p {
+  margin: 0.25rem 0 0;
+
+  font-size: 0.9rem;
+
+  color: #888;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+.mobile-nav__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile-nav__links a {
+  position: relative;
+
+  color: #353a56;
+
+  text-decoration: none;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+
+  transition: 0.25s ease;
+}
+
+.mobile-nav__links a:hover {
+  color: #fa7d2e;
+  transform: translateX(6px);
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 11;
+  height: 90px;
+  background: var(--navy);
+}
+
+.primary-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(3rem, 5vw, 7.5rem);
+  height: 90px;
+  padding: 0 150px;
+  list-style: none;
+}
+
+.primary-navigation a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 90px;
+  color: var(--cream);
+  /* font-family: "Poppins", sans-serif; */
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.primary-navigation a.link-highlighted {
+  background: var(--yellow);
+  border-radius: 50px;
+  height: 40px;
+  padding: 0px 15px;
+  color: var(--navy);
+  font-weight: bold;
+}
+
+.primary-navigation a:not(.link-highlighted)::after {
+  content: "";
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--yellow);
+  transform: translateX(-50%);
+  transition: width 0.2s ease;
+}
+
+.primary-navigation a:hover::after,
+.primary-navigation a:focus-visible::after,
+.primary-navigation a.active::after {
+  width: 65%;
+}
+
+/* =========================
+   Logo
+   ========================= */
+
+.brand-logo {
+  position: absolute;
+  z-index: 20;
+  top: 18px;
+  left: 8rem;
+}
+
+.brand-logo img {
+  display: block;
+  width: 160px;
+}
+
+/* =========================
+   Header actions (account + basket)
+   ========================= */
+
+.header-actions {
+  position: absolute;
+  top: 13px;
+  right: 8rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.account-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.account-button:hover {
+  transform: translateY(-2px);
+}
+
+.account-icon {
+  width: 45px;
+  height: 50px;
+}
+
+.account-button.is-logged-in .account-icon {
+  stroke: var(--yellow);
+}

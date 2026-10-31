@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard": "^40.0.0"
+  },
+  "dependencies": {
+    "sharp": "^0.35.4"
+  },
+  "scripts": {
+    "prepare": "husky"
+  }
+}

@@ -1,0 +1,21 @@
+/* =========================================
+   FONTS
+========================================= */
+
+@font-face {
+  font-family: "mainheadings";
+  src: url("../../assets/fonts/yummycupcakes/YummyCupcakes.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "heroheading";
+  src: url("../../assets/fonts/mandatory/MANDATOR.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "body";
+  src: url("../../assets/fonts/noto-sans/NotoSans-Regular.ttf") format("truetype");
+  font-display: swap;
+}

@@ -1,0 +1,108 @@
+<header class="site-header">
+  <a href="/" class="brand-logo" aria-label="Home Cake home">
+    <img src="/assets/images/logo.webp" alt="Home Cake" />
+  </a>
+
+  <nav aria-label="Primary navigation">
+    <ul class="primary-navigation">
+      <li><a href="/">Home</a></li>
+      <li><a href="/shop/all">Shop</a></li>
+      <li>
+        <a href="/shop/wedding-cakes">Wedding Cakes</a>
+      </li>
+      <li><a href="#">Contact</a></li>
+      <li>
+        <a href="#" class="link-highlighted" data-open-custom-cake>Custom Cakes</a>
+      </li>
+    </ul>
+  </nav>
+
+  <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <button class="mobile-nav__close" id="mobile-nav-close" aria-label="Close menu">✕</button>
+
+    <div class="mobile-nav__header">
+      <h3>Home Cake</h3>
+      <p>Handcrafted with Love</p>
+    </div>
+
+    <div class="mobile-nav__links">
+      <a href="/">Home</a>
+      <a href="/shop/all">Shop</a>
+      <a href="/shop/wedding-cakes">Wedding Cakes</a>
+      <a href="#custom-made" data-open-custom-cake>Custom Cakes</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <div class="header-actions">
+    <button
+      class="account-button"
+      id="account-toggle"
+      type="button"
+      aria-label="Log in or view your account"
+      aria-haspopup="dialog"
+    >
+      <svg
+        class="account-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="0.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ><use href="/assets/svg/icons.svg#user"></use></svg>
+    </button>
+
+    <div class="basket">
+      <button class="basket-button" id="basket-toggle" type="button" aria-label="Open shopping basket">
+        <svg
+          class="basket-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="0.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ><use href="/assets/svg/icons.svg#basket"></use></svg>
+
+        <span class="basket-count" id="basket-count">0</span>
+      </button>
+    </div>
+  </div>
+
+  <aside class="cart-panel" id="cart-panel" aria-label="Shopping basket" hidden>
+    <div class="cart-panel-header">
+      <h2>Your Basket <span class="basket-items"></span></h2>
+      <button class="cart-close" id="cart-close" type="button" aria-label="Close shopping basket">×</button>
+    </div>
+    <p class="cart-delivery-message" id="cart-delivery-message" aria-live="polite"></p>
+    <ul class="cart-items" id="cart-items"></ul>
+    <div class="cart-summary">
+      <div class="cart-summary__row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">£0.00</span>
+      </div>
+      <div class="cart-summary__row cart-summary__row--discount" id="cart-discount-row" hidden>
+        <span id="cart-discount-label">Discount</span>
+        <span id="cart-discount">−£0.00</span>
+      </div>
+      <div class="cart-summary__row">
+        <span>Delivery</span>
+        <span id="cart-delivery">Free</span>
+      </div>
+      <div class="cart-summary__row cart-summary__row--total">
+        <span>Total</span>
+        <strong id="cart-total">£0.00</strong>
+      </div>
+    </div>
+    <button type="button" class="checkout-button" id="checkout-button">Checkout</button>
+  </aside>
+</header>

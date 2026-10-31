@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Home Cake Admin</title>
+
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+
+  <body>
+    <!-- LOGIN -->
+
+    <main class="admin-login" id="login-view">
+      <div class="login-card">
+        <h1>Home Cake</h1>
+
+        <p class="login-subtitle">Admin Dashboard</p>
+
+        <form id="login-form">
+          <label for="email">Email</label>
+
+          <input id="email" type="email" autocomplete="email" required />
+
+          <label for="password">Password</label>
+
+          <input id="password" type="password" autocomplete="current-password" required />
+
+          <p id="login-error" class="login-error" role="alert"></p>
+
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- DASHBOARD -->
+
+    <div id="dashboard-view" class="dashboard" hidden>
+      <header class="admin-header">
+        <div>
+          <h1>Home Cake</h1>
+
+          <span>Admin</span>
+        </div>
+
+        <button id="logout-button" type="button">Log out</button>
+      </header>
+
+      <div class="admin-layout">
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+          <h2>Dashboard</h2>
+
+          <nav class="sidebar-nav">
+            <button class="sidebar-link active" data-section="dashboard">Dashboard</button>
+
+            <button class="sidebar-link" data-section="orders">Orders</button>
+
+            <button class="sidebar-link" data-section="products">Products</button>
+
+            <button class="sidebar-link" data-section="categories">Categories</button>
+
+            <button class="sidebar-link" data-section="custom-cakes">Custom Cakes</button>
+
+            <button class="sidebar-link" data-section="vouchers">Vouchers</button>
+          </nav>
+        </aside>
+
+        <!-- CONTENT -->
+
+        <main class="admin-main">
+          <!-- DASHBOARD -->
+
+          <section id="dashboard-section" class="admin-section">
+            <div class="dashboard-title">
+              <h2>Dashboard</h2>
+
+              <p>Welcome back!</p>
+            </div>
+
+            <section class="dashboard-cards">
+              <article class="dashboard-card">
+                <span>Orders</span>
+
+                <strong id="orders-count"> 0 </strong>
+              </article>
+
+              <article class="dashboard-card">
+                <span>Products</span>
+
+                <strong id="products-count"> 0 </strong>
+              </article>
+
+              <article class="dashboard-card">
+                <span>Revenue</span>
+
+                <strong id="revenue-total"> £0.00 </strong>
+              </article>
+
+              <article class="dashboard-card">
+                <span>Pending</span>
+
+                <strong id="pending-orders"> 0 </strong>
+              </article>
+
+              <article class="dashboard-card">
+                <span>Custom Cakes</span>
+
+                <strong id="custom-cakes-count"> 0 </strong>
+              </article>
+            </section>
+
+            <!-- RECENT ORDERS -->
+            <section class="recent-orders">
+              <div class="dashboard-title">
+                <h2>Recent Orders</h2>
+              </div>
+
+              <table class="orders-table">
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+
+                <tbody id="recent-orders-body"></tbody>
+              </table>
+            </section>
+          </section>
+
+          <!-- ORDERS -->
+
+          <section id="orders-section" class="admin-section" hidden>
+            <div class="dashboard-title">
+              <div>
+                <h2>Orders</h2>
+
+                <p>Manage your Home Cake orders</p>
+              </div>
+            </div>
+
+            <!-- ORDER FILTER -->
+
+            <div class="order-filters">
+              <button class="order-filter active" data-status="all">All</button>
+
+              <button class="order-filter" data-status="pending">Pending</button>
+
+              <button class="order-filter" data-status="confirmed">Confirmed</button>
+
+              <button class="order-filter" data-status="preparing">Preparing</button>
+
+              <button class="order-filter" data-status="ready">Ready</button>
+
+              <button class="order-filter" data-status="delivered">Delivered</button>
+            </div>
+
+            <div class="orders-container">
+              <table class="orders-table">
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="orders-list"></tbody>
+              </table>
+            </div>
+            <!-- PAGINATION-->
+
+            <div class="pagination">
+              <button id="previous-page">Previous</button>
+
+              <span id="page-number">Page 1 of 1</span>
+
+              <button id="next-page">Next</button>
+            </div>
+          </section>
+
+          <!-- PRODUCTS -->
+
+          <section id="products-section" class="admin-section" hidden>
+            <div class="dashboard-title">
+              <div>
+                <h2>Products</h2>
+                <p>Manage your products</p>
+              </div>
+            </div>
+
+            <div class="products-toolbar">
+              <input id="product-search" type="search" placeholder="Search products..." />
+
+              <button id="add-product-button" type="button">Add Product</button>
+            </div>
+
+            <div class="products-container">
+              <table id="products-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="products-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- CATEGORIES -->
+
+          <section id="categories-section" class="admin-section" hidden>
+            <div class="dashboard-title">
+              <div>
+                <h2>Categories</h2>
+                <p>Manage your categories</p>
+              </div>
+            </div>
+
+            <div class="categories-toolbar">
+              <input id="category-search" type="search" placeholder="Search categories..." />
+
+              <button id="add-category-button" type="button">Add Category</button>
+            </div>
+
+            <div class="categories-container">
+              <table class="categories-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Slug</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="categories-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="custom-cakes-section" class="admin-section" hidden>
+            <div class="dashboard-title">
+              <div>
+                <h2>Custom Cake Requests</h2>
+                <p>Manage bespoke cake enquiries</p>
+              </div>
+            </div>
+
+            <!-- CUSTOM CAKE FILTER -->
+
+            <div class="order-filters">
+              <button class="cake-filter active" data-status="all">All</button>
+
+              <button class="cake-filter" data-status="new">New</button>
+
+              <button class="cake-filter" data-status="reviewing">Reviewing</button>
+
+              <button class="cake-filter" data-status="quoted">Quoted</button>
+
+              <button class="cake-filter" data-status="approved">Approved</button>
+            </div>
+
+            <div class="orders-container">
+              <table class="orders-table">
+                <thead>
+                  <tr>
+                    <th>Reference</th>
+                    <th>Customer</th>
+                    <th>Delivery</th>
+                    <th>Status</th>
+                    <th>Created</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="custom-cakes-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- VOUCHERS -->
+
+          <section id="vouchers-section" class="admin-section" hidden>
+            <div class="dashboard-title">
+              <div>
+                <h2>Vouchers</h2>
+                <p>Manage discount codes</p>
+              </div>
+            </div>
+
+            <div class="categories-toolbar">
+              <input id="voucher-search" type="search" placeholder="Search vouchers..." />
+
+              <button id="add-voucher-button" type="button">Add Voucher</button>
+            </div>
+
+            <div class="categories-container">
+              <table class="categories-table">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Discount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="vouchers-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- ORDER MODAL -->
+
+    <div id="order-modal" class="order-modal" hidden>
+      <div class="order-modal-content">
+        <button id="order-modal-close" class="modal-close" type="button" aria-label="Close order details">×</button>
+
+        <div id="order-details"></div>
+      </div>
+    </div>
+
+    <!-- PRODUCT MODAL -->
+
+    <div id="product-modal" class="product-modal" hidden>
+      <div class="product-modal-content product-editor-modal-content" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+        <header class="product-modal-header">
+          <h2 id="product-modal-title">Edit Product</h2>
+          <button id="product-modal-close" class="modal-close" type="button" aria-label="Close product">×</button>
+        </header>
+
+        <form id="product-form">
+          <div class="product-modal-scroll">
+            <input id="product-id" type="hidden" />
+
+            <label for="product-name">Product Name</label>
+
+            <input id="product-name" type="text" required />
+
+            <label for="product-price">Price (£)</label>
+
+            <input id="product-price" type="number" min="0" step="0.01" required />
+
+            <label for="product-old-price">Original price (£, optional)</label>
+            <input id="product-old-price" type="number" min="0" step="0.01" placeholder="Only enter this for a sale price" />
+
+            <label for="product-stock">Available stock</label>
+            <input id="product-stock" type="number" min="0" step="1" value="20" required />
+
+            <label for="product-description">Product description</label>
+            <textarea id="product-description" rows="4" maxlength="10000" placeholder="Describe the cake and what makes it special."></textarea>
+
+            <details class="product-extra-fields" open>
+              <summary>Ingredients, allergens &amp; storage</summary>
+              <label for="product-ingredients">Ingredients and flavour details</label>
+              <textarea id="product-ingredients" rows="3" maxlength="10000" placeholder="Enter verified ingredients and flavour details."></textarea>
+              <label for="product-allergens">Declared allergens</label>
+              <textarea id="product-allergens" rows="2" maxlength="10000" placeholder="Only list allergens verified for this product."></textarea>
+              <label for="product-allergy-advice">Allergy and cross-contamination advice</label>
+              <textarea id="product-allergy-advice" rows="3" maxlength="10000" placeholder="Enter administrator-verified advice."></textarea>
+              <label for="product-storage">Storage instructions</label>
+              <textarea id="product-storage" rows="2" maxlength="10000"></textarea>
+              <label for="product-shelf-life">Shelf life</label>
+              <input id="product-shelf-life" type="text" maxlength="500" placeholder="e.g. Enjoy within 3 days" />
+            </details>
+
+            <details class="product-extra-fields">
+              <summary>Nutrition (administrator verified)</summary>
+              <p>Leave a value blank when it is not available. Enter nutrition values per 100 g and/or per portion.</p>
+              <div class="nutrition-admin-grid" data-nutrition-grid="per100g">
+                <strong>Per 100 g</strong>
+              </div>
+              <div class="nutrition-admin-grid" data-nutrition-grid="perPortion">
+                <strong>Per portion</strong>
+              </div>
+            </details>
+
+            <details class="product-extra-fields">
+              <summary>Portion sizes and pricing</summary>
+              <p>Products without size options continue to use the base price above.</p>
+              <div id="product-variants"></div>
+              <button id="add-product-variant" type="button" class="secondary-action">Add a size</button>
+            </details>
+
+            <label for="product-category">Category</label>
+
+            <select id="product-category" required></select>
+
+            <!-- IMAGE SELECTOR -->
+            <label for="product-image">Image (JPG, PNG, or WebP)</label>
+
+            <input id="product-image" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" />
+            <input type="hidden" id="current-image" />
+
+            <label for="product-gallery">Additional product images</label>
+            <input id="product-gallery" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" multiple />
+            <small>Select multiple images, then add more at any time. Up to 8 additional images are allowed.</small>
+            <div id="product-gallery-list" class="product-gallery-list" aria-live="polite"></div>
+
+            <p class="product-bestseller-help">Bestseller badges are calculated from completed paid orders in the last 30 days. Products need at least 3 distinct orders to qualify; no sales history means no badge.</p>
+
+            <div class="image-preview-wrapper">
+              <img id="image-preview" hidden alt="Product preview" />
+            </div>
+
+          </div>
+          <footer class="product-modal-footer">
+            <button id="product-modal-cancel" type="button" class="secondary-action">Cancel</button>
+            <button type="submit">Save Product</button>
+          </footer>
+        </form>
+      </div>
+    </div>
+
+    <!-- CATEGORY MODAL -->
+
+    <div id="category-modal" class="product-modal" hidden>
+      <div class="product-modal-content">
+        <button id="category-modal-close" class="modal-close" type="button">×</button>
+
+        <h2 id="category-modal-title">Add Category</h2>
+
+        <form id="category-form">
+          <input id="category-id" type="hidden" />
+
+          <label for="category-name"> Category Name </label>
+
+          <input id="category-name" type="text" maxlength="100" required />
+
+          <label for="category-slug"> Slug </label>
+
+          <input id="category-slug" type="text" maxlength="100" required />
+
+          <button type="submit">Save Category</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- VOUCHER MODAL -->
+
+    <div id="voucher-modal" class="product-modal" hidden>
+      <div class="product-modal-content">
+        <button id="voucher-modal-close" class="modal-close" type="button">×</button>
+
+        <h2 id="voucher-modal-title">Add Voucher</h2>
+
+        <form id="voucher-form">
+          <input id="voucher-id" type="hidden" />
+
+          <label for="voucher-code"> Code </label>
+
+          <input
+            id="voucher-code"
+            type="text"
+            maxlength="50"
+            placeholder="e.g. WELCOME10"
+            style="text-transform: uppercase"
+            required
+          />
+
+          <label for="voucher-discount"> Discount (%) </label>
+
+          <input id="voucher-discount" type="number" min="1" max="100" step="1" required />
+
+          <label class="voucher-active-label">
+            <input id="voucher-active" type="checkbox" checked />
+            Active
+          </label>
+
+          <button type="submit">Save Voucher</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- DELETE MODAL -->
+
+    <div id="delete-modal" class="delete-modal" hidden>
+      <div class="delete-modal-content">
+        <h2 id="delete-title">Delete Product</h2>
+
+        <p id="delete-message">Are you sure you want to delete this product?</p>
+
+        <p class="delete-warning">This action cannot be undone.</p>
+
+        <div class="delete-actions">
+          <button id="cancel-delete" class="secondary-button" type="button">Cancel</button>
+
+          <button id="confirm-delete" class="danger-button" type="button">Delete Product</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CUSTOM CAKE MODAL -->
+
+    <!-- <div id="custom-cake-modal" class="order-modal" hidden>
+      <div class="order-modal-content custom-cake-modal-content">
+        <button id="custom-cake-modal-close" class="modal-close" type="button">
+          ×
+        </button>
+
+        <div id="custom-cake-details"></div>
+      </div>
+    </div> -->
+
+    <div id="custom-cake-modal" class="modal" hidden>
+      <div class="modal-content">
+        <button id="close-custom-cake-modal" type="button">×</button>
+
+        <div id="custom-cake-details"></div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+
+    <div id="toast" class="toast" hidden>
+      <span id="toast-message"></span>
+    </div>
+
+    <!-- Notification modal -->
+    <div id="notification-modal" class="notification-modal" hidden>
+      <div class="notification-modal-content">
+        <p id="notification-modal-message"></p>
+        <button type="button" class="button notification-modal-close">OK</button>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

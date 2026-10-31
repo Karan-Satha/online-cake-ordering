@@ -1,0 +1,14 @@
+.heading-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: #d6a36a;
+}
+
+.heading-ornament i {
+  width: 70px;
+  height: 1px;
+  background: #d6a36a;
+}

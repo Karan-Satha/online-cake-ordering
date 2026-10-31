@@ -1,0 +1,61 @@
+/* =========================
+   Hero
+   ========================= */
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100dvh - 150px);
+  overflow: hidden;
+
+  background:
+    url("../../assets/images/hero-banner-image-laptop-large.webp") center bottom / cover no-repeat,
+    var(--cream);
+}
+
+.hero-copy {
+  width: min(850px, 50vw);
+  text-align: center;
+}
+
+.hero-copy h1 {
+  font-size: clamp(3rem, 5vw, 6rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Cormorant Garamond", serif;
+  color: var(--navy);
+}
+
+.hero-copy h1 span {
+  display: block;
+}
+
+.hero-copy p {
+  margin-top: 15px;
+  color: var(--gold);
+  font-family: "mainheadings", cursive;
+  font-size: clamp(20px, 1.7vw, 28px);
+  font-weight: bolder;
+  letter-spacing: 2.5px;
+}
+
+.shop-now-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8rem;
+  padding: 11px 30px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.shop-now-btn:hover {
+  transform: translateY(-2px);
+}

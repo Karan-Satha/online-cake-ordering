@@ -1,0 +1,261 @@
+/* ==========================================================================
+   Account Modal (login / register / forgot password)
+   ========================================================================== */
+
+.account-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.account-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.account-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 25%);
+}
+
+.account-modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(620px, 95vw);
+  max-height: 90vh;
+  padding: 2.75rem 2.5rem;
+  overflow-y: auto;
+  background: var(--white);
+  border: 10px solid var(--white);
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgb(0 0 0 / 20%);
+  z-index: 1001;
+}
+
+.account-modal.is-open .account-modal-container {
+  /* transform: translateY(0); */
+  transform: translate(-50%, -50%);
+}
+
+.account-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--navy);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.account-modal-close:hover {
+  transform: rotate(90deg);
+}
+
+/* Tabs
+   ========================================================================== */
+
+.account-modal-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-light, #f0e3d7);
+}
+
+.account-modal-tab {
+  padding: 0.75rem 0.25rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--text-light, #776c68);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.account-modal-tab.is-active {
+  border-bottom-color: var(--yellow);
+  color: var(--navy);
+}
+
+/* Views
+   ========================================================================== */
+
+.account-modal-view {
+  display: none;
+}
+
+.account-modal-view.is-active {
+  display: block;
+}
+
+.account-modal-view-title {
+  margin: 0 0 0.75rem;
+  color: var(--navy);
+  font-size: 1.3rem;
+}
+
+.account-modal-view-copy {
+  margin: 0 0 1.5rem;
+  color: var(--text-light, #776c68);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Form-level error banner (#account-modal-error) now uses the shared
+   .field-error-popup component — see css/components/form-validation.css */
+
+/* Form fields — matches the custom-cake modal's language */
+
+.account-modal .form-group {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.account-modal .form-group label {
+  font-size: 0.95rem;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.account-modal .form-group input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.85rem;
+  border: 1px solid var(--navy);
+  border-radius: 12px;
+  font: inherit;
+}
+
+.account-modal .form-group input:focus-visible {
+  outline: 3px solid rgba(210, 154, 100, 0.3);
+  outline-offset: 1px;
+}
+
+.form-group__input-wrapper {
+  position: relative;
+}
+
+.form-group__icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  width: 18px;
+  height: 18px;
+  color: var(--text-light, #776c68);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Field-level validation errors (beneath any .form-group input) now use
+   the shared .field-error-popup component — see
+   css/components/form-validation.css */
+
+/* Live password requirements checklist
+   ========================================================================== */
+
+.password-requirements {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0;
+  margin: -0.5rem 0 1.5rem;
+  list-style: none;
+}
+
+.password-requirements li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light, #776c68);
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.password-requirements__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+
+.password-requirements__icon::after {
+  content: "";
+  width: 5px;
+  height: 8px;
+  border-right: 1.5px solid var(--white);
+  border-bottom: 1.5px solid var(--white);
+  transform: rotate(45deg) translateY(-1px);
+  opacity: 0;
+}
+
+.password-requirements li.is-met {
+  color: #2f7a3d;
+}
+
+.password-requirements li.is-met .password-requirements__icon {
+  background: #2f7a3d;
+  border-color: #2f7a3d;
+}
+
+.password-requirements li.is-met .password-requirements__icon::after {
+  opacity: 1;
+}
+
+.form-hint {
+  color: var(--text-light, #776c68);
+  font-size: 0.8rem;
+}
+
+.account-modal-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.submit-account {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  background: var(--orange, var(--gold));
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.submit-account:hover {
+  transform: translateY(-2px);
+}
+
+.submit-account:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}

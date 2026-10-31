@@ -1,0 +1,396 @@
+.home-signature__wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+
+  background: white;
+
+  clip-path: ellipse(70% 100% at 50% 0%);
+}
+
+.join-club__heading {
+  font-size: 1.7rem;
+  line-height: 2;
+  font-weight: bolder;
+  margin-top: 1.5rem;
+  color: var(--navy);
+  font-family: "mainheadings";
+  letter-spacing: 2px;
+}
+
+.subscribe-btn:hover {
+  transform: translateY(-4px);
+}
+
+.painted-title {
+  position: relative;
+  display: inline-block;
+  color: var(--navy);
+}
+
+.painted-title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -12px;
+
+  width: 70%;
+  height: 10px;
+
+  background: var(--yellow);
+
+  border-radius: 40% 60% 50% 70% / 100% 80% 120% 100%;
+
+  transform: rotate(-1deg);
+
+  opacity: 0.9;
+}
+
+.footer-newsletter__curve {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: white;
+  clip-path: ellipse(70% 100% at 50% 0%);
+}
+
+.home-signature__form-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+
+.home-signature__form-label img {
+  height: 7rem;
+  margin-left: -15px;
+}
+
+.subscribe-email::placeholder {
+  color: rgba(20, 22, 31, 0.4);
+}
+
+.subscribe-email:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+.painted-title {
+  position: relative;
+  display: inline-block;
+  color: var(--ink);
+}
+
+.painted-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ============ Footer ============ */
+.footer {
+  position: relative;
+  background: var(--ink);
+  padding: 5.5rem 8rem 2.5rem;
+}
+
+.footer__top {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.1fr;
+  gap: 3rem;
+}
+
+.footer__logo {
+  margin-bottom: 1.1rem;
+}
+
+.footer__logo img {
+  width: 160px;
+}
+
+.footer__tagline {
+  max-width: 290px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.footer__socials a {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 4%);
+  color: var(--gold-light);
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.footer__socials a:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-light);
+  background: rgb(199 166 104 / 12%);
+  color: var(--gold-light);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
+}
+
+.footer__socials a:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 4px;
+}
+
+.footer__social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.footer__column h4 {
+  color: var(--white);
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  font-size: 0.98rem;
+  letter-spacing: 0.03em;
+}
+
+.footer__column h4::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  margin-top: 0.85rem;
+  background: var(--gold);
+}
+
+.footer__column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__column li {
+  margin-bottom: 0.95rem;
+}
+
+.footer__column a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+.footer__column a:hover {
+  color: var(--gold-light);
+  padding-left: 4px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-list__item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0;
+}
+
+.contact-list__icon {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--gold);
+}
+
+.contact-list__item span,
+.contact-list__item a {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-list__item a:hover {
+  color: var(--gold-light);
+  padding-left: 0;
+}
+
+.footer__bottom {
+  margin: 3.5rem auto 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer__bottom p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.home-signature {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    url("../../assets/images/footer-image-banner.webp") center bottom / cover no-repeat,
+    var(--cream);
+  padding: 8rem;
+}
+
+.home-signature__wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+
+  background: white;
+
+  clip-path: ellipse(70% 100% at 50% 0%);
+}
+
+.home-signature .container {
+  margin: 2rem auto;
+  position: relative;
+  display: grid;
+  gap: 5rem;
+  align-items: center;
+}
+
+.home-signature img {
+  display: block;
+}
+
+.home-signature__eyebrow {
+  display: inline-block;
+
+  color: var(--orange);
+
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-weight: bolder;
+}
+
+.home-signature__title {
+  font-size: clamp(2.5rem, 2vw, 4.5rem);
+
+  line-height: 1.1;
+
+  color: var(--navy);
+
+  margin-bottom: 1.5rem;
+  font-family: "mainheadings";
+}
+
+.join-club__heading {
+  font-size: 1.7rem;
+  line-height: 2;
+  font-weight: bolder;
+  margin-top: 1.5rem;
+  color: var(--navy);
+  font-family: "mainheadings";
+  letter-spacing: 2px;
+}
+
+.home-signature__text {
+  max-width: 520px;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--navy);
+}
+
+.home-signature__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  height: 60px;
+  background: var(--yellow);
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: bolder;
+  letter-spacing: 0.08em;
+  border-radius: 999px;
+  letter-spacing: 0.07em;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.subscribe-email {
+  min-width: 400px;
+  height: 58px;
+  border: 1px solid var(--navy);
+  border-radius: 50px;
+  flex: 1;
+  background: transparent;
+  padding: 0.6rem;
+  font-size: 0.98rem;
+}
+
+.subscribe-email-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 120px;
+}
+
+.subscribe-email {
+  width: 100%;
+  height: 60px;
+  padding: 0 25px 0 60px;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+.subscribe-email-icon {
+  position: absolute;
+  top: 31px;
+  left: 24px;
+  width: 20px;
+  height: 20px;
+  color: var(--navy);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Newsletter feedback (#signature-email) now uses the shared
+   .field-error-popup component — see css/components/form-validation.css */

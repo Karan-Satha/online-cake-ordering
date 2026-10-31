@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmed | Home Cake</title>
+    <meta name="description" content="Your Home Cake order has been confirmed." />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="checkout-page">
+    <header class="checkout-header">
+      <a href="/" class="brand-logo" aria-label="Home Cake home">
+        <img src="/assets/images/logo.webp" alt="Home Cake" />
+      </a>
+      <div class="checkout-header__actions">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          ><use href="/assets/svg/icons.svg#shield-check"></use></svg>
+
+          <span class="checkout-security">Secure checkout</span>
+        </div>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          ><use href="/assets/svg/icons.svg#shopping-bag-arrow"></use></svg>
+
+          <a class="checkout-header__link" href="/shop/all"> Continue shopping</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="checkout-main container">
+      <div class="checkout-intro">
+        <p>Home Cake · London</p>
+        <h1 id="confirmation-title">A little closer to something delicious.</h1>
+        <span id="confirmation-subtitle">We're pulling up your order details…</span>
+        <ol class="checkout-steps" aria-label="Checkout progress">
+          <li><span>1</span>Delivery</li>
+          <li><span>2</span>Payment</li>
+          <li class="is-active"><span>3</span>Confirmation</li>
+        </ol>
+      </div>
+
+      <p id="confirmation-error" hidden></p>
+
+      <div id="confirmation-layout" class="checkout-layout" hidden>
+        <section class="checkout-details" aria-labelledby="confirmation-details-title">
+          <div class="checkout-section-heading">
+            <span>✓</span>
+            <div>
+              <p>Order confirmed</p>
+              <h2 id="confirmation-details-title">Thank you<span id="confirmation-name-suffix"></span>!</h2>
+            </div>
+          </div>
+
+          <div class="confirmation-meta">
+            <p>Order <strong id="confirmation-order-id">#—</strong></p>
+            <p id="confirmation-order-date"></p>
+          </div>
+
+          <p class="confirmation-lede">We've received your order and we'll email you shortly with delivery updates.</p>
+
+          <div class="delivery-summary">
+            <h3>Delivery details</h3>
+            <dl>
+              <div>
+                <dt>Name</dt>
+                <dd id="confirmation-customer-name"></dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd id="confirmation-customer-email"></dd>
+              </div>
+              <div>
+                <dt>Phone</dt>
+                <dd id="confirmation-customer-phone"></dd>
+              </div>
+              <div>
+                <dt>Address</dt>
+                <dd id="confirmation-address"></dd>
+              </div>
+              <div id="confirmation-notes-row">
+                <dt>Notes</dt>
+                <dd id="confirmation-notes"></dd>
+              </div>
+            </dl>
+          </div>
+
+          <a href="/shop/all" class="pay-button confirmation-cta">Continue shopping</a>
+        </section>
+
+        <aside class="order-summary" aria-labelledby="summary-title">
+          <div class="order-summary__heading">
+            <div>
+              <p>Order summary</p>
+              <h2 id="summary-title">What you ordered</h2>
+            </div>
+          </div>
+          <ul id="confirmation-items" class="checkout-items"></ul>
+          <div class="order-summary__rows">
+            <p><span>Subtotal</span><strong id="confirmation-subtotal">£0.00</strong></p>
+            <p id="confirmation-discount-row" hidden>
+              <span id="confirmation-discount-label">Discount</span><strong id="confirmation-discount">−£0.00</strong>
+            </p>
+            <p><span>Delivery</span><strong id="confirmation-delivery">£0.00</strong></p>
+            <p class="order-summary__total"><span>Total paid</span><strong id="confirmation-total">£0.00</strong></p>
+          </div>
+          <div class="order-summary__assurance">
+            <span aria-hidden="true">♡</span>
+            <p>Lovingly baked to order with the finest ingredients.</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <div class="footer-bottom__checkout">
+      <p>© 2026 Home Cake. Freshly baked with love.</p>
+    </div>
+    <script type="module" src="/js/confirmation.js"></script>
+  </body>
+</html>

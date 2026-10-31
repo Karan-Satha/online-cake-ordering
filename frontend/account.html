@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Account | Home Cake</title>
+
+    <meta name="description" content="View your Home Cake account details and order history." />
+    <!-- Private, per-user page — should never appear in search results. -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="account-page">
+    <div id="site-header"></div>
+
+    <main id="main-content" class="account-main container">
+      <!-- Shown while we check login status -->
+      <div id="account-loading" class="account-loading">Loading your account…</div>
+
+      <!-- Shown if not logged in -->
+      <div id="account-guest" class="account-guest" hidden>
+        <h1>You're not logged in</h1>
+        <p>Log in or create an account to see your order history and account details.</p>
+        <button type="button" class="submit-account account-guest__cta" data-open-account data-account-view="login">
+          Log In
+        </button>
+      </div>
+
+      <!-- Shown once logged in -->
+      <div id="account-dashboard" class="account-dashboard" hidden>
+        <header class="account-header">
+          <div>
+            <p class="account-header__eyebrow">My Account</p>
+            <h1 id="account-name">Hi there</h1>
+            <p id="account-email" class="account-header__email"></p>
+          </div>
+          <button type="button" class="account-logout" id="account-logout">Log Out</button>
+        </header>
+
+        <section class="account-orders" aria-labelledby="account-orders-title">
+          <h2 id="account-orders-title">Your Orders</h2>
+
+          <div id="account-orders-empty" class="account-orders-empty" hidden>
+            <p>You haven't placed any orders yet.</p>
+            <a href="/shop/all" class="account-orders-empty__link">Start shopping</a>
+          </div>
+
+          <ul id="account-orders-list" class="account-orders-list"></ul>
+        </section>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <div id="site-custom-cake-modal"></div>
+    <div id="site-account-modal"></div>
+
+    <script type="module" src="/js/layout.js"></script>
+    <script type="module" src="/js/cart.js"></script>
+    <script type="module" src="/js/accountModal.js"></script>
+    <script type="module" src="/js/account.js"></script>
+    <script type="module" src="/js/overlay.js"></script>
+  </body>
+</html>

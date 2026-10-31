@@ -1,0 +1,418 @@
+/* =========================================
+   PRODUCTS PAGE
+========================================= */
+
+.products-page {
+  padding: 5rem 0;
+}
+
+/* Homepage reassurance strip. Keep image sizing local so the global image
+   reset cannot make these decorative icons grow with their grid cells. */
+.features-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1rem, 2.2vw, 2rem);
+  padding: 1.55rem clamp(1.25rem, 5vw, 5rem);
+  border-block: 1px solid rgb(53 58 86 / 8%);
+  background: #fffaf6;
+}
+
+.features-bar .feature {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.9rem;
+}
+
+.features-bar .feature > img {
+  display: block;
+  flex: 0 0 46px;
+  width: 46px;
+  min-width: 46px;
+  max-width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.features-bar .feature-content {
+  min-width: 0;
+}
+
+.features-bar .feature-content h3 {
+  margin: 0 0 0.2rem;
+  color: var(--navy);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  line-height: 1.35;
+}
+
+.features-bar .feature-content p {
+  color: var(--text-muted);
+  font-size: 0.69rem;
+  line-height: 1.45;
+}
+
+.features-bar .feature-divider {
+  width: 1px;
+  height: 34px;
+  justify-self: center;
+  background: rgb(53 58 86 / 14%);
+}
+
+/* =========================================
+   FEATURED PRODUCTS (carousel)
+========================================= */
+
+.featured-products {
+  padding: 8rem 8rem;
+  overflow: hidden;
+  background: linear-gradient(var(--white), var(--cream), #ffffff);
+}
+
+.featured-products__header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.featured-products__title {
+  margin: 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: var(--navy);
+}
+
+/* Alternate heading treatment used on some pages */
+.featured-products__heading {
+  padding: 25px 0 14px;
+  text-align: center;
+}
+
+.featured-products__heading h2 {
+  font-family: "mainheadings", cursive;
+  font-size: 31px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   PRODUCT CARD (carousel / BEM version)
+========================================= */
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-card);
+  background: #fff7f1;
+  border: 1px solid rgb(250 195 181 / 40%);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.product-card__price {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 0.2rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgb(255 218 23 / 25%);
+
+  color: var(--orange);
+
+  font-size: 1.4rem;
+
+  font-weight: 700;
+}
+
+.product-card__pricing {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  margin-bottom: 1.25rem;
+}
+
+.product-card__old-price {
+  color: #9ca3af;
+
+  font-size: 1rem;
+
+  text-decoration: line-through;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.product-card__badge {
+  position: absolute;
+
+  top: 1rem;
+  left: 1rem;
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 999px;
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  z-index: 2;
+}
+
+.product-card__saving {
+  position: absolute;
+
+  top: 1rem;
+  right: 1rem;
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 999px;
+
+  background: #fa7d2e;
+
+  color: #fff;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  z-index: 2;
+}
+
+.product-card__image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: #fffaf7;
+}
+
+.product-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-card__image img {
+  transform: scale(1.06);
+}
+
+.product-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem;
+  gap: 0.75rem;
+}
+
+.product-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  min-height: 4rem;
+}
+
+.product-card__category {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.product-card__price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--price-colour);
+}
+
+.product-card__button {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* =========================================
+   PRODUCT GRID (plain listing version)
+   Namespaced under .products-grid so it no
+   longer collides with the carousel's
+   .product-card rules above.
+========================================= */
+
+.products-grid .product-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.products-grid .product-card {
+  position: relative;
+  display: block;
+  height: 315px;
+  min-width: 250px;
+  max-width: 400px;
+  padding: 14px 14px 58px;
+  border-radius: 11px;
+  background: var(--white);
+  box-shadow: 0 7px 22px rgb(53 58 86 / 8%);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  margin: 10px;
+}
+
+.products-grid .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgb(53 58 86 / 12%);
+}
+
+.add-to-bag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  height: 50px;
+  border: 0;
+  background: var(--orange);
+  background: color-mix(in srgb, var(--orange) 94%, var(--navy));
+  color: var(--white);
+  transition: 0.3s;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.add-to-bag__icon {
+  flex: 0 0 auto;
+  width: 21px;
+  height: 21px;
+}
+
+.add-to-bag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgb(250 125 46 / 25%);
+}
+
+/* =========================================
+   VIEW PRODUCTS BUTTON
+========================================= */
+
+.view-products-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.view-products-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 13px 44px;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  color: var(--navy);
+  /* font-size: 20px; */
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.view-products-btn:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.featured-products__eyebrow {
+  display: inline-block;
+
+  margin-bottom: 1rem;
+
+  padding: 0.6rem 1.2rem;
+
+  border-radius: 999px;
+
+  background: rgb(255 218 23 / 20%);
+
+  color: var(--navy);
+
+  font-size: 0.85rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+.featured-products__title span {
+  color: var(--orange);
+}
+
+.featured-products__description {
+  max-width: 700px;
+
+  margin: 1.5rem auto 2rem;
+
+  color: var(--text-muted);
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+}
+
+.featured-products__highlights {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 3rem;
+
+  margin-bottom: 2rem;
+
+  flex-wrap: wrap;
+}
+
+.featured-products__highlight {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.featured-products__highlight strong {
+  color: var(--navy);
+
+  font-size: 1.4rem;
+
+  font-weight: 700;
+}
+
+.featured-products__highlight span {
+  color: var(--text-muted);
+
+  font-size: 0.9rem;
+}

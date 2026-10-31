@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: home-cake-demo
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci --prefix backend
+    startCommand: npm start --prefix backend
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: FRONTEND_URL
+        value: https://home-cake-demo.onrender.com
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL
+        value: "true"
+      - key: DATABASE_POOL_MAX
+        value: "5"
+      - key: AWS_ENDPOINT_URL_S3
+        sync: false
+      - key: AWS_REGION
+        value: eu-central-1
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: PRODUCT_IMAGES_BUCKET
+        value: home-cake-products
+      - key: CUSTOM_CAKE_IMAGES_BUCKET
+        value: home-cake-custom-cakes

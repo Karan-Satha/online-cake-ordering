@@ -1,0 +1,25 @@
+.modal-custom {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.modal-custom.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.modal-custom.is-open .modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

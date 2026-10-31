@@ -1,0 +1,239 @@
+<div class="custom-cake-modal modal-custom" id="custom-cake-modal" hidden>
+  <div class="custom-cake-backdrop"></div>
+
+  <div class="custom-cake-container modal-content">
+    <button class="custom-cake-close" id="custom-cake-close" type="button" aria-label="Close">×</button>
+
+    <img class="custom-cake-logo" src="/assets/images/logo.webp" alt="custom cake logo" />
+
+    <div class="custom-cake-header">
+      <h2>Design Your Dream Cake</h2>
+
+      <p>Create a bespoke cake tailored to your celebration and generate an AI preview before requesting your quote.</p>
+    </div>
+
+    <div class="custom-cake-progress">
+      <div class="custom-cake-progress-bar" id="custom-cake-progress"></div>
+    </div>
+
+    <form id="custom-cake-form" novalidate>
+      <!-- Occasion -->
+      <div class="form-group">
+        <label for="cake-type">Cake Type <span class="required">*</span></label>
+
+        <select id="cake-type" name="cakeType" required>
+          <option value="">Select cake type</option>
+          <option>Birthday Cake</option>
+          <option>Wedding Cake</option>
+          <option>Celebration Cake</option>
+          <option>Baby Shower Cake</option>
+          <option>Corporate Cake</option>
+          <option>Anniversary Cake</option>
+        </select>
+      </div>
+
+      <!-- Shape -->
+      <fieldset class="form-group cake-visual-fieldset">
+        <legend>Cake Shape <span class="required">*</span></legend>
+        <p class="cake-colour-help">Choose the outline that best suits your design.</p>
+        <div class="cake-shape-options cake-visual-options" data-visual-selector="shape" role="radiogroup" aria-label="Cake shape"></div>
+        <input id="cake-shape" type="hidden" name="shape" value="" />
+      </fieldset>
+
+      <!-- Tiers -->
+      <fieldset class="form-group cake-visual-fieldset">
+        <legend>Number of Tiers <span class="required">*</span></legend>
+        <p class="cake-colour-help">Select how many tiers you would like.</p>
+        <div class="cake-tier-options cake-visual-options" data-visual-selector="tiers" role="radiogroup" aria-label="Number of cake tiers"></div>
+        <input id="cake-tiers" type="hidden" name="tiers" value="" />
+      </fieldset>
+
+      <!-- Size -->
+      <div class="form-group">
+        <label for="cake-size">Size <span class="required">*</span></label>
+
+        <select id="cake-size" name="cakeSize" required>
+          <option value="">Select size</option>
+          <option>6 Inch</option>
+          <option>8 Inch</option>
+          <option>10 Inch</option>
+          <option>12 Inch</option>
+        </select>
+      </div>
+
+      <!-- Flavour -->
+      <div class="form-group">
+        <label for="cake-flavour">Flavour <span class="required">*</span></label>
+
+        <select id="cake-flavour" name="flavour" required>
+          <option value="">Select flavour</option>
+          <option>Vanilla</option>
+          <option>Chocolate</option>
+          <option>Red Velvet</option>
+          <option>Lemon</option>
+          <option>Lotus Biscoff</option>
+          <option>Oreo</option>
+          <option>Strawberry</option>
+        </select>
+      </div>
+
+      <!-- Style -->
+      <div class="form-group">
+        <label for="cake-style">Cake Style</label>
+
+        <select id="cake-style" name="style">
+          <option>Modern</option>
+          <option>Luxury</option>
+          <option>Minimalist</option>
+          <option>Elegant</option>
+          <option>Vintage</option>
+          <option>Floral</option>
+          <option>Cute</option>
+        </select>
+      </div>
+
+      <!-- Theme -->
+      <fieldset class="form-group cake-visual-fieldset cake-theme-fieldset">
+        <legend>Theme <span class="optional">(optional)</span></legend>
+        <p class="cake-colour-help">Choose a theme, or leave this blank if you have another style in mind.</p>
+        <div class="cake-theme-options cake-visual-options" data-visual-selector="theme" role="radiogroup" aria-label="Cake theme"></div>
+        <input id="cake-theme" type="hidden" name="theme" value="" />
+        <div class="cake-theme-other" hidden>
+          <label for="cake-theme-description">Tell us about your theme</label>
+          <input id="cake-theme-description" type="text" maxlength="90" placeholder="Describe the theme you have in mind" />
+        </div>
+      </fieldset>
+
+      <!-- Colours -->
+      <div class="cake-colour-selectors" aria-label="Cake colours">
+        <fieldset class="form-group cake-colour-fieldset">
+          <legend>Primary Colour <span class="required">*</span></legend>
+          <p class="cake-colour-help">Choose the main colour for your cake.</p>
+          <div class="cake-colour-options" data-colour-selector="primaryColour" role="radiogroup" aria-label="Primary cake colour"></div>
+          <input id="cake-primary-colour" type="hidden" name="primaryColour" value="#F4A6C1" />
+          <div class="cake-custom-colour">
+            <label for="cake-primary-custom-colour">Choose another colour</label>
+            <input id="cake-primary-custom-colour" type="color" value="#F4A6C1" aria-label="Custom primary cake colour" />
+          </div>
+        </fieldset>
+
+        <fieldset class="form-group cake-colour-fieldset">
+          <legend>Secondary Colour <span class="optional">(optional)</span></legend>
+          <p class="cake-colour-help">Add an accent colour, or leave this blank.</p>
+          <div class="cake-colour-options" data-colour-selector="secondaryColour" role="radiogroup" aria-label="Secondary cake colour"></div>
+          <input id="cake-secondary-colour" type="hidden" name="secondaryColour" value="" />
+          <div class="cake-custom-colour">
+            <label for="cake-secondary-custom-colour">Choose another colour</label>
+            <input id="cake-secondary-custom-colour" type="color" value="#F4A6C1" aria-label="Custom secondary cake colour" />
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Decorations -->
+      <div class="form-group">
+        <label>Decorations</label>
+
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" name="decorations" value="Flowers" />
+            Flowers
+          </label>
+
+          <label>
+            <input type="checkbox" name="decorations" value="Macarons" />
+            Macarons
+          </label>
+
+          <label>
+            <input type="checkbox" name="decorations" value="Gold Leaf" />
+            Gold Leaf
+          </label>
+
+          <label>
+            <input type="checkbox" name="decorations" value="Fresh Fruit" />
+            Fresh Fruit
+          </label>
+
+          <label>
+            <input type="checkbox" name="decorations" value="Drip Effect" />
+            Drip Effect
+          </label>
+
+          <label>
+            <input type="checkbox" name="decorations" value="Fondant Figures" />
+            Fondant Figures
+          </label>
+        </div>
+      </div>
+
+      <!-- Delivery -->
+      <div class="form-group">
+        <label for="delivery-date">Delivery Date <span class="required">*</span></label>
+
+        <input id="delivery-date" type="date" name="deliveryDate" required />
+      </div>
+
+      <!-- Cake Message -->
+      <div class="form-group">
+        <label for="cake-message">Cake Message</label>
+
+        <input id="cake-message" type="text" name="cakeMessage" placeholder="Happy Birthday Sarah" />
+      </div>
+
+      <!-- Inspiration Images -->
+      <div class="form-group">
+        <label for="cake-images"> Upload Inspiration Images </label>
+
+        <input type="file" id="cake-images" name="images" multiple accept="image/*" />
+
+        <div class="image-preview" id="image-preview"></div>
+      </div>
+
+      <!-- Notes -->
+      <div class="form-group">
+        <label for="cake-notes"> Additional Notes </label>
+
+        <textarea id="cake-notes" name="notes" rows="5" placeholder="Describe your dream cake..."></textarea>
+      </div>
+
+      <!-- AI Preview -->
+      <div class="cake-preview" id="cake-preview" hidden>
+        <h3>Your AI Cake Preview</h3>
+
+        <img id="cake-preview-image" alt="AI generated cake preview" />
+      </div>
+
+      <!-- Customer Details -->
+      <div class="customer-details-heading">
+        <h3>Your Details</h3>
+      </div>
+
+      <div class="form-group">
+        <label for="cake-customer-name">Name <span class="required">*</span></label>
+
+        <input id="cake-customer-name" type="text" name="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="cake-customer-email">Email <span class="required">*</span></label>
+
+        <input id="cake-customer-email" type="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="cake-customer-phone">Phone <span class="required">*</span></label>
+
+        <input id="cake-customer-phone" type="tel" name="phone" required />
+      </div>
+
+      <!-- Buttons -->
+      <div class="custom-cake-actions">
+        <button id="generate-preview-button" class="generate-preview-button" type="button">
+          ✨ Generate AI Preview
+        </button>
+
+        <button class="submit-custom-cake" type="submit">Request My Quote</button>
+      </div>
+    </form>
+  </div>
+</div>

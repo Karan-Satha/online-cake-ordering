@@ -1,0 +1,163 @@
+/* ==========================================
+   Shop Categories
+========================================== */
+
+.shop-categories {
+  padding: 8rem 8rem;
+  background: linear-gradient(
+    180deg,
+    var(--cream) 0%,
+    var(--white) 50%,
+    var(--cream) 100%
+  );
+}
+
+/* ==========================================
+   Heading
+========================================== */
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-subtitle {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--orange);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin-bottom: 1rem;
+  color: var(--navy);
+  font-family: "mainheadings";
+  font-size: clamp(3rem, 5vw, 4.5rem);
+}
+
+.section-heading p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #6f7282;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   Grid Layout
+========================================== */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Wedding Cakes */
+
+.category-card--hero {
+  grid-column: span 2;
+  min-height: 420px;
+}
+
+/* Birthday & Celebration */
+
+.category-card--medium {
+  min-height: 420px;
+}
+
+/* ==========================================
+   Cards
+========================================== */
+
+.category-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  border-radius: 28px;
+  background: var(--white);
+  text-decoration: none;
+  box-shadow: 0 12px 40px rgb(0 0 0 / 6%);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 50px rgb(0 0 0 / 12%);
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ==========================================
+   Overlay
+========================================== */
+
+.category-card__overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 2rem;
+
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgb(53 58 86 / 85%) 100%
+  );
+}
+
+.category-card__overlay h3 {
+  margin-bottom: 0.5rem;
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.category-card__overlay span {
+  color: var(--yellow);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================
+   Decorative Accent
+========================================== */
+
+.category-card::before {
+  content: "";
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, var(--yellow), var(--orange));
+
+  opacity: 0.9;
+  z-index: 2;
+}
+
+
+}

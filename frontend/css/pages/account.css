@@ -1,0 +1,313 @@
+/* ==========================================================================
+   Account Page
+   ========================================================================== */
+
+.account-page {
+  background: var(--white);
+}
+
+.account-main {
+  min-height: 70vh;
+  padding: 6rem 0;
+}
+
+.account-main.container {
+  padding: 8rem 8rem;
+}
+
+/* ==========================================================================
+   Loading
+   ========================================================================== */
+
+.account-loading {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  padding: 8rem 0;
+}
+
+/* ==========================================================================
+   Guest State
+   ========================================================================== */
+
+.account-guest {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 4rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(210, 154, 100, 0.15);
+  border-radius: 28px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.08),
+    0 5px 15px rgba(210, 154, 100, 0.08);
+}
+
+.account-guest h1 {
+  margin-bottom: 1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  color: var(--navy);
+}
+
+.account-guest p {
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.account-guest__cta {
+  padding: 1rem 2.5rem;
+}
+
+/* ==========================================================================
+   Dashboard
+   ========================================================================== */
+
+.account-dashboard {
+  display: grid;
+  gap: 3rem;
+}
+
+/* ==========================================================================
+   Premium Header
+   ========================================================================== */
+
+.account-header {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.5rem;
+  background: linear-gradient(135deg, rgba(53, 58, 86, 1), rgba(34, 38, 58, 1));
+  color: var(--white);
+  box-shadow: 0 20px 60px rgba(53, 58, 86, 0.25);
+  border: none;
+}
+
+.account-header::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: -250px;
+  right: -250px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.account-header__eyebrow {
+  margin-bottom: 0.5rem;
+  color: #d29a64;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.account-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.account-header__email {
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+}
+
+.account-logout {
+  padding: 0.9rem 1.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.account-logout:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   Orders Section
+   ========================================================================== */
+
+.account-orders h2 {
+  margin-bottom: 2rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.25rem;
+  color: var(--navy);
+}
+
+.account-orders-list {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ==========================================================================
+   Order Cards
+   ========================================================================== */
+
+.account-order {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: #fdf4ef;
+  border: 1px solid rgba(210, 154, 100, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.account-order::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--orange);
+}
+
+.account-order:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+.account-order__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.account-order__id {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.account-order__date {
+  margin-top: 0.4rem;
+  color: var(--text-light);
+}
+
+.account-order__items {
+  margin: 1rem 0;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.account-order__discount {
+  margin: 0 0 0.75rem;
+  color: #2f7a3d;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.account-order__total {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ==========================================================================
+   Empty State
+   ========================================================================== */
+
+.account-orders-empty {
+  padding: 4rem;
+  text-align: center;
+  border-radius: 24px;
+  background: white;
+  border: 1px dashed rgba(210, 154, 100, 0.4);
+}
+
+.account-orders-empty__link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.account-orders-empty__link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Status Badges
+   ========================================================================== */
+
+.account-order__status {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.account-order__status--pending {
+  background: rgb(255 218 23 / 20%);
+  color: var(--ink);
+}
+
+.account-order__status--confirmed {
+  background: rgba(53, 58, 86, 0.1);
+  color: var(--navy);
+}
+
+.account-order__status--preparing {
+  background: rgba(210, 154, 100, 0.15);
+  color: #b56d2e;
+}
+
+.account-order__status--ready {
+  background: rgba(246, 214, 79, 0.25);
+  color: #8a6d00;
+}
+
+.account-order__status--delivered {
+  background: rgba(46, 125, 50, 0.12);
+  color: #2e7d32;
+}
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .account-main.container {
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  .account-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+  }
+
+  .account-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .account-guest {
+    padding: 2rem;
+  }
+
+  .account-orders-empty {
+    padding: 2rem;
+  }
+}

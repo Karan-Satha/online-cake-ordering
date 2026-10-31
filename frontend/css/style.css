@@ -1,0 +1,39 @@
+/* Entry point — loads every stylesheet in cascade order.
+ * Keep this order: base tokens/reset first, then components, then
+ * page-specific styles, with responsive.css last so its overrides win. */
+
+/* Base */
+@import url("./base/variables.css");
+@import url("./base/fonts.css");
+@import url("./base/layout.css");
+@import url("./base/reset.css");
+
+/* Components (reused across pages) */
+@import url("./components/header.css");
+@import url("./components/components.css");
+@import url("./components/cart.css");
+@import url("./components/footer.css");
+@import url("./components/carousel.css");
+@import url("./components/toast.css");
+@import url("./components/modal.css");
+@import url("./components/custommodal.css");
+@import url("./components/accountmodal.css");
+@import url("./components/form-validation.css");
+
+/* Pages */
+@import url("./pages/home.css");
+@import url("./pages/shopbycategory.css");
+@import url("./pages/whychoseus.css");
+@import url("./pages/custommade.css");
+@import url("./pages/contact.css");
+@import url("./pages/checkout.css");
+@import url("./pages/feature.css");
+@import url("./pages/products.css");
+@import url("./pages/product.css?v=7");
+@import url("./pages/account.css");
+@import url("./overlays/welcome.css");
+@import url("./overlays/exitCart.css");
+@import url("./overlays/viewedProductsOverlay.css");
+
+/* Responsive overrides — must stay last */
+@import url("./responsive.css");

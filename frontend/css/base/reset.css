@@ -1,0 +1,224 @@
+/* =========================================
+   RESET
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+
+  background: var(--cream);
+
+  color: var(--navy);
+
+  font-family: var(--font-body);
+
+  line-height: 1.6;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   MEDIA
+========================================= */
+
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+
+  max-width: 100%;
+}
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+
+  font-weight: normal;
+}
+
+p {
+  margin: 0;
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+/* =========================================
+   LISTS
+========================================= */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* =========================================
+   FORM ELEMENTS
+========================================= */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--white);
+}
+
+select option:checked {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--white);
+}
+
+select option:hover {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--white);
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* =========================================
+   TABLES
+========================================= */
+
+table {
+  border-collapse: collapse;
+
+  border-spacing: 0;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.skip-link {
+  position: absolute;
+
+  left: -9999px;
+
+  top: auto;
+}
+
+.skip-link:focus {
+  left: 1rem;
+
+  top: 1rem;
+
+  padding: 0.75rem 1rem;
+
+  background: var(--yellow);
+
+  color: var(--navy);
+
+  border-radius: var(--radius-small);
+
+  z-index: var(--z-modal);
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+
+  height: 1px;
+
+  padding: 0;
+
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0 0 0 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--yellow) !important;
+
+  outline-offset: 2px !important;
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visually hides content while keeping it available to screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
