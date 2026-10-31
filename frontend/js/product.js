@@ -1,5 +1,5 @@
 import { getProduct, addToCart, getRelatedProducts } from "./api.js";
-import { BASE_URL } from "./config.js";
+import { assetUrl } from "./config.js";
 import { calculateDiscountPercentage, escapeHtml, formatPrice, getProductIdFromUrl } from "./utils.js";
 import { openCart } from "./cart.js";
 import { loadProducts } from "./carouselProductService.js";
@@ -111,7 +111,7 @@ function renderProductGallery(images) {
   if (!productImage) return;
   const currentImages = images.length ? images : [product.image];
   const setImage = (src, index) => {
-    productImage.src = `${BASE_URL}${src}`;
+    productImage.src = assetUrl(src);
     productImage.alt = `${product.name}${currentImages.length > 1 ? `, photo ${index + 1} of ${currentImages.length}` : ""}`;
     galleryThumbnails?.querySelectorAll("button").forEach((button) => {
       const active = Number(button.dataset.index) === index;
@@ -123,7 +123,7 @@ function renderProductGallery(images) {
   if (galleryThumbnails) {
     galleryThumbnails.innerHTML = currentImages.length > 1 ? currentImages.map((src, index) => `
       <button type="button" class="product-thumbnail${index === 0 ? " is-active" : ""}" data-index="${index}" aria-label="Show product photo ${index + 1}" aria-pressed="${index === 0}">
-        <img src="${escapeHtml(`${BASE_URL}${src}`)}" alt="" loading="lazy" />
+        <img src="${escapeHtml(assetUrl(src))}" alt="" loading="lazy" />
       </button>`).join("") : "";
     galleryThumbnails.querySelectorAll("button").forEach((button) => {
       button.addEventListener("click", () => setImage(currentImages[Number(button.dataset.index)], Number(button.dataset.index)));

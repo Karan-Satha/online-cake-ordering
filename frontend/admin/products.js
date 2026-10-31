@@ -1,4 +1,4 @@
-import { BASE_URL } from "../js/config.js";
+import { BASE_URL, assetUrl } from "../js/config.js";
 import { escapeHtml, formatPrice } from "../js/utils.js";
 import { showToast } from "./toast.js";
 import {
@@ -144,7 +144,7 @@ function collectVariants() {
 function renderGalleryList() {
   const savedImages = existingGallery.map((path, index) => ({
     name: path.split("/").pop(),
-    src: `${BASE_URL}/uploads/products/${path}`,
+    src: /^https?:\/\//i.test(path) ? assetUrl(path) : assetUrl(`/uploads/products/${path}`),
     source: "saved",
     index,
   }));
@@ -261,7 +261,7 @@ function renderProducts(products) {
         <tr>
           <td>
             <img
-              src="${BASE_URL}${product.image}"
+              src="${escapeHtml(assetUrl(product.image))}"
               alt="${name}"
               width="60"
             />
@@ -421,7 +421,7 @@ productsBody.addEventListener("click", async (event) => {
       const product = await getProduct(Number(editButton.dataset.id));
 
       currentImageInput.value = product.image;
-      imagePreview.src = `${BASE_URL}${product.image}`;
+      imagePreview.src = assetUrl(product.image);
       imagePreview.hidden = false;
       productIdInput.value = product.id;
       productNameInput.value = product.name;

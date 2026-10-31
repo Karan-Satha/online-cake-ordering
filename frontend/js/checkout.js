@@ -1,4 +1,4 @@
-import { BASE_URL } from "./config.js";
+import { assetUrl } from "./config.js";
 import { createCheckoutSession, getCart, removeCartItem, updateCartItem, getVoucher } from "./api.js";
 import { escapeHtml, formatPrice } from "./utils.js";
 import { getDeliveryFeeInPence, getFreeDeliveryMessage } from "./deliveryConfig.js";
@@ -133,7 +133,7 @@ function renderCart() {
 
       return `
     <li class="checkout-item">
-      <img src="${BASE_URL}${item.image}" alt="${name}" />
+      <img src="${escapeHtml(assetUrl(item.image))}" alt="${name}" />
       <div><strong>${name}</strong><span>${formatPrice(item.priceInPence)}</span></div>
       <div class="checkout-item__controls">
         <button type="button" data-action="decrease" data-id="${item.cartItemId}" aria-label="Decrease ${name}">−</button>

@@ -1,4 +1,4 @@
-import { BASE_URL } from "./config.js";
+import { assetUrl } from "./config.js";
 import { getCart, addToCart, updateCartItem, removeCartItem } from "./api.js";
 import { createSlug, escapeHtml, formatPrice } from "./utils.js";
 import { getDeliveryFeeInPence, getFreeDeliveryMessage } from "./deliveryConfig.js";
@@ -145,7 +145,7 @@ export async function renderCart(cart = []) {
             return `
               <li class="cart-item">
                 <a href="${productUrl}" aria-label="Visit product ${name}">
-                  <img src="${BASE_URL}${item.image}" alt="Image for ${name}">
+                  <img src="${escapeHtml(assetUrl(item.image))}" alt="Image for ${name}">
                 </a>
 
                 <div class="cart-item-info">

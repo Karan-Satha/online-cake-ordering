@@ -10,3 +10,15 @@ const defaultApiOrigin = isLocalFrontend
 
 export const BASE_URL = (window.HOME_CAKE_API_ORIGIN || defaultApiOrigin).replace(/\/$/, "");
 export const API_URL = `${BASE_URL}/api`;
+
+export function assetUrl(value) {
+  if (!value) return "";
+
+  try {
+    const url = new URL(value, `${BASE_URL}/`);
+    if (url.protocol !== "https:" && url.origin !== new URL(BASE_URL).origin) return "";
+    return url.href;
+  } catch {
+    return "";
+  }
+}

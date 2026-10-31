@@ -1,7 +1,7 @@
 import { addToCart } from "../../api.js";
 import { markOverlayShown, getStorageItem } from "../overlayStorage.js";
 import { getExitIntentProducts, getViewedProducts } from "../overlayViewedProducts.js";
-import { BASE_URL } from "../../config.js";
+import { assetUrl } from "../../config.js";
 import { dismissOverlayElement } from "../overlayRenderer.js";
 import { icon as sharedIcon } from "../../icon.js";
 import { storePendingVoucher } from "../../voucher.js";
@@ -45,7 +45,7 @@ export async function renderViewedProductsOverlay() {
       (product) => `
         <article class="hc-viewed-card">
           <div class="hc-viewed-card__image-wrapper">
-            <img src="${BASE_URL}${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" class="hc-viewed-card__image" />
+          <img src="${escapeHtml(assetUrl(product.image))}" alt="${escapeHtml(product.name)}" class="hc-viewed-card__image" />
             <button class="hc-viewed-card__favourite" type="button" aria-label="Add ${escapeHtml(product.name)} to favourites" aria-pressed="false">
               ${icon("heart")}
             </button>
@@ -67,7 +67,7 @@ export async function renderViewedProductsOverlay() {
 
   const thumbnails = products
     .slice(0, 3)
-    .map((product) => `<img src="${BASE_URL}${escapeHtml(product.image)}" alt="" />`)
+    .map((product) => `<img src="${escapeHtml(assetUrl(product.image))}" alt="" />`)
     .join("");
 
   const overlay = document.createElement("div");

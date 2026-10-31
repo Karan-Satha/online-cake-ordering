@@ -3,6 +3,8 @@ import { getAutoAppliedDiscount } from "../../voucher.js";
 import { getBasketProducts } from "../overlayBasket.js";
 import { dismissOverlayElement } from "../overlayRenderer.js";
 import { icon as sharedIcon } from "../../icon.js";
+import { assetUrl } from "../../config.js";
+import { escapeHtml } from "../../utils.js";
 
 const FREE_DELIVERY_THRESHOLD = 5000;
 
@@ -59,7 +61,7 @@ export async function renderExitCartOverlay(products) {
             .map(
               (product) => `
             <article class="hc-product">
-              <img src="${product.image}" alt="${product.name}">
+              <img src="${escapeHtml(assetUrl(product.image))}" alt="${escapeHtml(product.name)}">
               <div class="hc-product__info">
                 <h3 class="hc-product__name">${product.name}</h3>
 

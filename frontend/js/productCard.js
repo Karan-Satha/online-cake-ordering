@@ -1,4 +1,4 @@
-import { BASE_URL } from "./config.js";
+import { assetUrl } from "./config.js";
 import {
   formatPrice,
   calculateDiscountPercentage,
@@ -41,7 +41,7 @@ export function createProductCard(product) {
         aria-label="View ${name}"
       >
         <img
-          src="${BASE_URL}${product.image}"
+          src="${escapeHtml(assetUrl(product.image))}"
           alt="${name}"
           loading="lazy"
           decoding="async"

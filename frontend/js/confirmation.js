@@ -1,4 +1,4 @@
-import { BASE_URL } from "./config.js";
+import { assetUrl } from "./config.js";
 import { completeCheckout } from "./api.js";
 import { escapeHtml, formatPrice } from "./utils.js";
 import { clearPendingVoucher } from "./voucher.js";
@@ -49,7 +49,7 @@ function renderItems(items) {
   itemsList.innerHTML = items
     .map((item) => {
       const name = escapeHtml(item.name);
-      const image = item.image ? `${BASE_URL}${item.image}` : "/assets/images/logo.webp";
+      const image = item.image ? assetUrl(item.image) : "/assets/images/logo.webp";
 
       return `
         <li class="checkout-item confirmation-item">
