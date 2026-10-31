@@ -62,11 +62,10 @@ app.use(
           ...(process.env.AWS_ENDPOINT_URL_S3
             ? (() => {
                 const storageHost = new URL(process.env.AWS_ENDPOINT_URL_S3).hostname;
-                return [
-                  storageHost.startsWith("storage.")
-                    ? `https://*.${storageHost}`
-                    : `https://${storageHost}`,
-                ];
+                const branchStorageSuffix = storageHost.includes(".storage.")
+                  ? storageHost.slice(storageHost.indexOf(".storage.") + 1)
+                  : storageHost;
+                return [`https://*.${branchStorageSuffix}`];
               })()
             : []),
         ],
