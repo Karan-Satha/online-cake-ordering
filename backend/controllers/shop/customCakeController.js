@@ -2,6 +2,10 @@ import { getOpenAIClient } from "../../services/shop/openai.js";
 import { createCustomCakeRequest } from "../../services/shop/customCakeService.js";
 import AppError from "../../utils/AppError.js";
 import { getProductImageUrl, getCustomCakeImagePath } from "../../services/storage/objectStorage.js";
+import { sendEmail } from "../../services/email/emailClient.js";
+import { buildCustomCakeRequestReceivedEmail } from "../../services/email/templates/customCakeRequestReceived.js";
+import { normalizeEmailAddress } from "../../utils/emailAddress.js";
+import { logger } from "../../utils/logger.js";
 
 const ALLOWED_CAKE_SHAPES = ["Round", "Square", "Rectangle", "Heart", "Oval", "Hexagon", "Tall Barrel"];
 const ALLOWED_CAKE_TIERS = ["1 Tier", "2 Tier", "3 Tier", "4 Tier"];
@@ -116,6 +120,11 @@ export async function submitCustomCake(req, res, next) {
       }
     }
 
+    const customerEmail = normalizeEmailAddress(req.body.email);
+    if (!customerEmail) {
+      throw new AppError("Please provide a valid email address.", 400);
+    }
+
     if (!ALLOWED_CAKE_SHAPES.includes(req.body.shape)) {
       throw new AppError("Please choose a valid cake shape.", 400);
     }
@@ -137,8 +146,24 @@ export async function submitCustomCake(req, res, next) {
 
     const customCake = await createCustomCakeRequest({
       ...req.body,
+      email: customerEmail,
       inspirationImages,
     });
+
+    const confirmation = buildCustomCakeRequestReceivedEmail({
+      customerName: req.body.name,
+      referenceNumber: customCake.reference_number,
+    });
+    const emailResult = await sendEmail({
+      to: customerEmail,
+      subject: confirmation.subject,
+      html: confirmation.html,
+      text: confirmation.text,
+    });
+
+    if (!emailResult.success) {
+      logger.error(`Custom cake request acknowledgement failed for request #${customCake.id}: ${emailResult.error}`);
+    }
 
     res.status(201).json({
       success: true,

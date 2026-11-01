@@ -38,7 +38,7 @@ export const subscribe = asyncHandler(async (req, res) => {
     });
 
     if (!result.success) {
-      logger.error(`Newsletter welcome email failed for ${email}: ${result.error}`);
+      logger.error(`Newsletter welcome email failed: ${result.error}`);
     }
   }
 

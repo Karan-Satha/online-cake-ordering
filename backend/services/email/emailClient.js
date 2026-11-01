@@ -2,6 +2,7 @@ import { Resend } from "resend";
 
 import { config } from "../../config/index.js";
 import { logger } from "../../utils/logger.js";
+import { normalizeEmailAddress } from "../../utils/emailAddress.js";
 
 let resendClient = null;
 
@@ -26,10 +27,17 @@ function getResendClient() {
  * { success, id? , error? } so the caller can log and move on.
  */
 export async function sendEmail({ to, subject, html, text, replyTo }) {
+  const recipient = normalizeEmailAddress(to);
+
+  if (!recipient) {
+    logger.warn(`Email not sent (invalid recipient address): "${subject}"`);
+    return { success: false, error: "A valid recipient email address is required" };
+  }
+
   const client = getResendClient();
 
   if (!client) {
-    logger.warn(`Email not sent (RESEND_API_KEY not configured): "${subject}" to ${to}`);
+    logger.warn(`Email not sent (RESEND_API_KEY not configured): "${subject}"`);
 
     return { success: false, error: "Email provider not configured" };
   }
@@ -37,7 +45,7 @@ export async function sendEmail({ to, subject, html, text, replyTo }) {
   try {
     const { data, error } = await client.emails.send({
       from: `${config.emailFromName} <${config.emailFromAddress}>`,
-      to,
+      to: recipient,
       subject,
       html,
       text,
@@ -45,14 +53,14 @@ export async function sendEmail({ to, subject, html, text, replyTo }) {
     });
 
     if (error) {
-      logger.error(`Email send failed ("${subject}" to ${to}): ${error.message}`);
+      logger.error(`Email send failed ("${subject}", ${error.name || "Resend error"}${error.statusCode ? `, HTTP ${error.statusCode}` : ""}): ${error.message}`);
 
       return { success: false, error: error.message };
     }
 
     return { success: true, id: data?.id };
   } catch (error) {
-    logger.error(`Email send threw ("${subject}" to ${to}): ${error.message}`);
+    logger.error(`Email send threw ("${subject}", ${error.name || "Error"}): ${error.message}`);
 
     return { success: false, error: error.message };
   }

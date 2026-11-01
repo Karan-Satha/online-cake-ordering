@@ -12,7 +12,7 @@ export const config = {
   productImagesBucket: process.env.PRODUCT_IMAGES_BUCKET || "home-cake-products",
   customCakeImagesBucket: process.env.CUSTOM_CAKE_IMAGES_BUCKET || "home-cake-custom-cakes",
   resendApiKey: process.env.RESEND_API_KEY,
-  emailFromAddress: process.env.EMAIL_FROM_ADDRESS || "orders@homecake.co.uk",
+  emailFromAddress: process.env.EMAIL_FROM_ADDRESS || "orders@send.karan-satha.com",
   emailFromName: process.env.EMAIL_FROM_NAME || "Home Cake",
   abandonedCartDelayHours: Number(process.env.ABANDONED_CART_DELAY_HOURS || 24),
 };
