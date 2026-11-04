@@ -14,6 +14,19 @@
 }
 
 /* =========================================
+   1500px
+========================================= */
+@media (min-width: 1282px) and (max-width: 1500px) {
+  .brand-logo {
+    left: 4rem;
+  }
+
+  .header-actions {
+    right: 4rem;
+  }
+}
+
+/* =========================================
    1440px
 ========================================= */
 @media (max-width: 1440px) {
@@ -123,6 +136,11 @@
 
   .brand-logo img {
     width: 130px;
+  }
+
+  .brand-logo {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .basket {
@@ -365,13 +383,14 @@
   }
 
   .brand-logo {
-    width: 7rem;
+    width: 82px;
     top: 11px;
-    left: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .brand-logo img {
-    width: 112px;
+    width: 82px;
   }
 
   .mobile-menu-toggle {
@@ -384,7 +403,7 @@
   }
 
   .header-actions {
-    right: 3.5rem;
+    right: 3rem;
     top: 5px;
     gap: 0rem;
   }
