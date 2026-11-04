@@ -138,7 +138,6 @@ export async function renderViewedProductsOverlay() {
       storePendingVoucher(voucherCodeValue);
       voucherCopyButton.innerHTML = `${icon("check")}<span>Copied</span>`;
       voucherCopyButton.classList.add("is-copied");
-      status.textContent = "Voucher copied and saved. It will be applied to your basket.";
       setTimeout(() => {
         if (!voucherCopyButton.isConnected) return;
         voucherCopyButton.innerHTML = `${icon("copy")}<span>Copy code</span>`;
