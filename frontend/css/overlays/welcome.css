@@ -673,6 +673,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .hc-overlay__image-panel {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hc-overlay__close,
   .hc-overlay-form__field,

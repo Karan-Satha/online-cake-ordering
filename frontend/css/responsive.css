@@ -140,8 +140,8 @@
 
   .brand-logo {
     left: 2rem;
-    top: 16px;
-    transform: none;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .basket {
@@ -385,9 +385,9 @@
 
   .brand-logo {
     width: 82px;
-    top: 21px;
+    top: 50%;
     left: 1rem;
-    transform: none;
+    transform: translateY(-50%);
   }
 
   .brand-logo img {
@@ -916,5 +916,18 @@
 
   .features-bar .feature-content p {
     font-size: 0.62rem;
+  }
+}
+
+/* Keep the final custom-cake form controls clear of mobile viewport edges. */
+@media (max-width: 576px) {
+  .custom-cake-container {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+    scroll-padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
   }
 }

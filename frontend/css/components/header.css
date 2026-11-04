@@ -249,8 +249,9 @@ body.menu-open {
 .brand-logo {
   position: absolute;
   z-index: 20;
-  top: 12px;
+  top: 50%;
   left: 8rem;
+  transform: translateY(-50%);
 }
 
 .brand-logo img {
