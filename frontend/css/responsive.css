@@ -126,7 +126,7 @@
 @media (max-width: 1175px) {
   .mobile-menu-toggle {
     display: block;
-    top: 25px;
+    top: 19px;
     right: 2rem;
   }
 
@@ -139,8 +139,9 @@
   }
 
   .brand-logo {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 2rem;
+    top: 16px;
+    transform: none;
   }
 
   .basket {
@@ -384,9 +385,9 @@
 
   .brand-logo {
     width: 82px;
-    top: 11px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 21px;
+    left: 1rem;
+    transform: none;
   }
 
   .brand-logo img {
@@ -394,7 +395,7 @@
   }
 
   .mobile-menu-toggle {
-    top: 11px;
+    top: 16px;
     right: 1rem;
   }
 
