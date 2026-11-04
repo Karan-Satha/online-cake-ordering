@@ -12,5 +12,5 @@ body {
   background: var(--cream);
   color: var(--navy);
   font-family: "body", Arial, sans-serif;
-  padding-top: 80px;
+  padding-top: var(--header-height);
 }

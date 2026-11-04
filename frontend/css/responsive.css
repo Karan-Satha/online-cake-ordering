@@ -121,6 +121,10 @@
     display: none;
   }
 
+  .brand-logo img {
+    width: 130px;
+  }
+
   .basket {
     top: 13px;
     right: 5rem;
@@ -348,21 +352,30 @@
   }
 
   body {
-    padding-top: 70px;
+    padding-top: 62px;
   }
 
   .site-header {
-    height: 70px;
+    height: 62px;
+  }
+
+  .primary-navigation,
+  .primary-navigation a {
+    height: 62px;
   }
 
   .brand-logo {
     width: 7rem;
-    top: 16px;
+    top: 11px;
     left: 1rem;
   }
 
+  .brand-logo img {
+    width: 112px;
+  }
+
   .mobile-menu-toggle {
-    top: 16px;
+    top: 11px;
     right: 1rem;
   }
 
@@ -399,8 +412,9 @@
 
   .hero-copy {
     width: 75vw;
-    margin-bottom: 10dvh;
+    margin-bottom: 5dvh;
     text-align: left;
+    transform: translateY(12px);
   }
 
   .hero-copy h1 {

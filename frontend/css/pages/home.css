@@ -17,6 +17,7 @@
 .hero-copy {
   width: min(850px, 50vw);
   text-align: center;
+  transform: translateY(clamp(12px, 2.5vh, 30px));
 }
 
 .hero-copy h1 {

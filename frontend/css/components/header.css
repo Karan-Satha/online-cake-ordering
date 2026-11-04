@@ -15,7 +15,7 @@
   z-index: 1002;
   position: absolute;
   right: 15px;
-  top: 22px;
+  top: 18px;
 }
 
 body.menu-open {
@@ -186,7 +186,7 @@ body.menu-open {
   left: 0;
   width: 100%;
   z-index: 11;
-  height: 90px;
+  height: var(--header-height);
   background: var(--navy);
 }
 
@@ -195,7 +195,7 @@ body.menu-open {
   justify-content: center;
   align-items: center;
   gap: clamp(3rem, 5vw, 7.5rem);
-  height: 90px;
+  height: var(--header-height);
   padding: 0 150px;
   list-style: none;
 }
@@ -204,14 +204,14 @@ body.menu-open {
   position: relative;
   display: flex;
   align-items: center;
-  height: 90px;
+  height: var(--header-height);
   color: var(--cream);
   /* font-family: "Poppins", sans-serif; */
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-transform: none;
 }
 
 .primary-navigation a.link-highlighted {
@@ -249,13 +249,13 @@ body.menu-open {
 .brand-logo {
   position: absolute;
   z-index: 20;
-  top: 18px;
+  top: 12px;
   left: 8rem;
 }
 
 .brand-logo img {
   display: block;
-  width: 160px;
+  width: 130px;
 }
 
 /* =========================
@@ -264,7 +264,7 @@ body.menu-open {
 
 .header-actions {
   position: absolute;
-  top: 13px;
+  top: 8px;
   right: 8rem;
   z-index: 20;
   display: flex;
