@@ -42,7 +42,9 @@
 .checkout-header .brand-logo {
   position: static;
   display: inline-flex;
+  align-self: center;
   width: 130px;
+  transform: none;
 }
 
 .checkout-header .brand-logo img {
