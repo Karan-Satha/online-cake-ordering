@@ -956,9 +956,9 @@
   }
 
   .mobile-menu-toggle span {
-    width: 32px;
+    width: 28px;
     height: 1px;
-    margin: 0;
+    margin: 1px;
   }
 
   .header-actions {
