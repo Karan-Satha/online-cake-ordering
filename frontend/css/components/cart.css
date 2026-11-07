@@ -68,11 +68,11 @@
   position: absolute;
   z-index: 100;
 
-  top: 90px;
+  top: var(--header-height);
   right: 0;
 
   width: min(450px, calc(100vw - 30px));
-  height: min(100dvh - 90px);
+  height: calc(100dvh - var(--header-height));
 
   display: flex;
   flex-direction: column;

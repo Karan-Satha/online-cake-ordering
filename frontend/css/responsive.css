@@ -383,6 +383,7 @@
   }
 
   .site-header {
+    --header-height: 62px;
     height: 62px;
   }
 
@@ -571,10 +572,10 @@
   }
 
   .cart-panel {
-    top: 70px;
-    right: 0px;
+    top: var(--header-height);
+    right: 0;
     width: auto;
-    height: min(100dvh - 70px);
+    height: calc(100dvh - var(--header-height));
   }
 
   .featured-products__highlights {
